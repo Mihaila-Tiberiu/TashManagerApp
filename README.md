@@ -1,9 +1,9 @@
 
 # Prerequisites:
 
-- Have git installed
+- Have Git installed
 - Have PHP and composer installed
-- Have docker installed
+- Have Docker installed
 
 # To set up the project:
 
@@ -23,12 +23,19 @@ cd task-manager-app
 docker-compose up -d db
 ```
 
-#4 Start the container. Make sure nothing is running on port 3306!
+#4 Start the container (if it hasn't already started). Make sure nothing is running on port 3306!
 ```plaintext
 docker start task-manager-app_db_1
 ```
 
-#5 Go to the .env file and change the DB values
+#5 Install composer
+```plaintext
+composer install
+```
+
+#6 Rename the .env.example file to .env
+
+#7 Change the DB values within the .env file
 ```plaintext
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -38,23 +45,23 @@ DB_USERNAME=root
 DB_PASSWORD=root
 ```
 
-#5 Make sure the migrations are valid:
+#8 Make sure the migrations are valid:
 ```plaintext
 php artisan migrate 
 ```
 
-#6 Generate the encryption key
+#9 Generate the encryption key
 ```plaintext
 php artisan key:generate
 php artisan config:cache
 ```
 
-#7 Start the server:
+#10 Start the server:
 ```plaintext
 php artisan serve
 ```
 
-#8 Go to the URL below to see the application:
+#11 Go to the URL below to see the application:
 ```plaintext
 http://localhost:8000
 ```
@@ -63,7 +70,7 @@ http://localhost:8000
 
 #1 Restart the database container:
 ```plaintext
-docker start task_manager_app_db_1
+docker start task-manager-app_db_1
 ```
 
 #2 Start the server:
