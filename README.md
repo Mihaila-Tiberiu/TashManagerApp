@@ -1,3 +1,9 @@
+# Personal Task Manager App 
+
+# Functionality:
+
+- To add a new task, use the form
+- To edit a task, click on the appropriate table row, edit the appropriate fields and then submit
 
 # Prerequisites:
 
