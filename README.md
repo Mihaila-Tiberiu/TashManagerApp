@@ -12,27 +12,49 @@
 git clone git@github.com:Mihaila-Tiberiu/TashManagerApp.git
 ```
 
-#2 Create the database container:
+#2 Navigate to the project folder:
+```plaintext
+cd TashManagerApp
+cd task-manager-app
+```
+
+#3 Create the database container:
 ```plaintext
 docker-compose up -d db
 ```
 
-#3 Start the container. Make sure nothing is running on port 3306!
+#4 Start the container. Make sure nothing is running on port 3306!
 ```plaintext
-docker start task_manager_app_db_1
+docker start task-manager-app_db_1
 ```
 
-#3 Make sure the migrations are valid:
+#5 Go to the .env file and change the DB values
+```plaintext
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=task_manager_app_db
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+#5 Make sure the migrations are valid:
 ```plaintext
 php artisan migrate 
 ```
 
-#4 Start the server:
+#6 Generate the encryption key
+```plaintext
+php artisan key:generate
+php artisan config:cache
+```
+
+#7 Start the server:
 ```plaintext
 php artisan serve
 ```
 
-#5 Go to the URL below to see the application:
+#8 Go to the URL below to see the application:
 ```plaintext
 http://localhost:8000
 ```
